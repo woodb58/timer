@@ -13,13 +13,21 @@ class Timer {
     this.interval = setInterval(this.tick, 1000);
   };
 
-  tick = () => {
-    console.log("tick");
-  };
-
   pause = () => {
     clearInterval(this.interval);
   };
+
+  tick = () => {
+    this.timeRemaining = this.timeRemaining -1;
+  };
+
+  get timeRemaining() {
+    return parseFloat(this.durationInput.value);
+  }
+
+  set timeRemaining(time) {
+    this.durationInput.value = time;
+  }
 }
 
 const durationInput = document.querySelector("#duration");
